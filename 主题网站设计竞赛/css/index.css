@@ -1,15 +1,128 @@
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
+  font-family: "Source Serif Pro", serif;
+}
 .navbar {
-  width: 200px; /* 对导航栏进行宽度设置 */
+  max-width: 10%; /* 对导航栏进行宽度设置 */
   background-color: #f9f9f9; /* 设置导航栏背景颜色 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0;
 }
 
-.navbar a {
+.navbar .menu a {
   display: block; /* 将链接元素变为块状元素 */
   color: #333; /* 设置链接颜色 */
   padding: 12px 16px; /* 设置链接的内边距 */
   text-decoration: none; /* 去除链接下划线 */
-}
+  display: flex;
+  justify-content: center;
+  text-orientation: mixed;
+  writing-mode: vertical-rl;
+  align-items: center;
+  letter-spacing: 6px;
 
+}
+.navbar .menu{
+  display: flex;
+  flex-direction: column
+}
 .navbar a:hover {
   background-color: #ddd; /* 当鼠标移到链接上时，设置背景颜色 */
 }
+.navbar img{
+  width: 100%;
+}
+/* 轮播图 */
+.rotation{
+  max-width: 90%;
+  height: 100%;
+  background-color: #ddd;
+  margin-left: 10%;
+}
+
+.carousel-item{
+    transition: transform 1s ease-in-out;
+}
+
+/* 第二部分内容 */
+.content_first{
+  width: 100%;
+  margin-left:0%;
+  background-color: #f9f9f9;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.first_text{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start
+}
+.first_img{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+.first_img img:first-of-type{
+  width: 700px;
+  height: 500px;
+  position: absolute;
+  top: 172px;
+}
+.first_img img:last-of-type{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: -20px;
+  top: 580px;
+}
+.btn-sm{
+  width: 125px;
+}
+
+/* 第三部分内容 */
+.content_second{
+  /* background-image: url(../img/聚焦两会.jpg); */
+  background-size: 100% 100%;
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 35%;
+}
+.content_second>img{
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+}
+/* 第四部分 */
+.content_third{
+  width: 100%;
+  background-color: #f9f9f9;
+  height: 100%;
+  padding-top: 8%;
+}
+.content_third .box{
+  width: 100%;
+  height: 50%;
+  /* background-color: aqua; */
+}
+
+/* .content_third .box div{
+  height: 100%;
+  width: 44%;
+  background-color: beige;
+} */
