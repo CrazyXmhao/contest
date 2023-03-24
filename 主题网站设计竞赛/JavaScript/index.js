@@ -1,47 +1,28 @@
-// 获取轮播相关元素
-var carousel = document.getElementById('carousel');
-var images = carousel.getElementsByTagName('img');
-var prev = document.createElement('div');
-var next = document.createElement('div');
-
-// 初始化轮播
-var current = 0;
-var timer = setInterval(function() {
-  showImage(current);
-  current++;
-  if (current >= images.length) {
-    current = 0;
-  }
-}, 5000);
-
-// 添加轮播控制按钮
-prev.className = 'carousel-prev';
-prev.innerHTML = '&lt;';
-prev.addEventListener('click', function() {
-  current--;
-  if (current < 0) {
-    current = images.length - 1;
-  }
-  showImage(current);
-});
-
-next.className = 'carousel-next';
-next.innerHTML = '&gt;';
-next.addEventListener('click', function() {
-  current++;
-  if (current >= images.length) {
-    current = 0;
-  }
-  showImage(current);
-});
-
-carousel.appendChild(prev);
-carousel.appendChild(next);
-
-// 显示指定图片
-function showImage(index) {
-  for (var i = 0; i < images.length; i++) {
-    images[i].style.display = 'none';
-  }
-  images[index].style.display = 'block';
+function scrollDown() {
+  $('.content_third').animate({
+      scrollLeft: '-=1500'
+  }, 800); /* 时间单位是毫秒 */
 }
+
+function scrollUp() {
+  $('.content_third').animate({
+      scrollLeft: '+=1500'
+  }, 800);
+}
+
+
+
+  $(document).ready(function(){
+    setInterval(function(){
+      var currentPos = $('#carouselExample .carousel-inner').position().top;
+      var itemHeight = $('#carouselExample .carousel-item').height();
+      var newPos = currentPos - 10;
+      $('#carouselExample .carousel-inner').animate({top: newPos}, 1, function(){
+        if (Math.abs(newPos) >= itemHeight) {
+          $('#carouselExample .carousel-item:first').appendTo('#carouselExample .carousel-inner');
+          $('#carouselExample .carousel-inner').css('top', 0);
+        }
+      });
+    }, 1);
+  });
+
